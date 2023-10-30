@@ -6,8 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: "test_onesight"
-    volumes:
-      - .:/workspace:rw
-    command: ["./entrypoint.sh"]
     ports:
       - "8000:8000"
+    environment:
+      - DATABASE_URL=

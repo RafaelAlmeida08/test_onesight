@@ -1,4 +1,2 @@
-#!/bin/sh
-
 composer install
-symfony server:start --no-tls --port=8000
+symfony server:start --no-tls --port=8000
