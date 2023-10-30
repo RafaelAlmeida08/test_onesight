@@ -3,3 +3,15 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+
+index_en:
+    path: /en
+    controller: App\Controller\HomeController::index
+    defaults:
+        _locale: en
+
+index_es:
+    path: /es
+    controller: App\Controller\HomeController::index
+    defaults:
+        _locale: es

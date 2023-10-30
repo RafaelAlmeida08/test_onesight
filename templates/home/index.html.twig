@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Language Switcher</title>
+</head>
+<body>
+    <h1>{{ 'Select Language'|trans }}</h1>
+    {{ form_start(form) }}
+    <div>
+        {{ form_label(form.locale) }}
+        {{ form_widget(form.locale) }}
+        {{ form_errors(form.locale) }}
+    </div>
+    <div>
+        <button type="submit">Submit</button>
+    </div>
+    <div>
+    {{ greeting }}
+    {{ welcomeMessage }}
+    </div>
+    {{ form_end(form) }}
+</body>
+</html>
