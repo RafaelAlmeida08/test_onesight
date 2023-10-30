@@ -14,5 +14,12 @@ RUN curl -sS https://get.symfony.com/cli/installer | bash \
     && mv /root/.symfony5/bin/symfony /usr/local/bin/symfony
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+COPY . /workspace
 
-WORKDIR /workspace
+WORKDIR /workspace
+
+RUN chmod 755 ./entrypoint.sh
+
+ENTRYPOINT [ "sh", "-c" ]
+CMD ["exec ./entrypoint.sh"]
+
