@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Form\LanguageSwitchType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormFactoryInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -12,6 +13,12 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 class HomeController extends AbstractController
 {
+    #[Route('/', name: 'base')]
+    public function redirectToDefaultLocale(Request $request): RedirectResponse
+    {
+        return $this->redirectToRoute('home', ['_locale' => 'en']);
+    }
+
     #[Route('/{_locale}', name: 'home', requirements: ['_locale' => 'en|es'])]
     public function index(Request $request, TranslatorInterface $translator, FormFactoryInterface $formFactory): Response
     {

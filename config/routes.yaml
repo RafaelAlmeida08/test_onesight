@@ -4,6 +4,10 @@ controllers:
         namespace: App\Controller
     type: attribute
 
+index_default:
+    path: /
+    controller: App\Controller\HomeController::redirectToDefaultLocale
+
 index_en:
     path: /en
     controller: App\Controller\HomeController::index
